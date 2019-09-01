@@ -9,7 +9,7 @@ test_size = 0.3
 valid_size = 0.1
 
 transform = transforms.Compose([transforms.RandomHorizontalFlip(), transforms.RandomRotation(20), transforms.Resize(size=(224,224)), transforms.ToTensor(), transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
-data = datasets.ImageFolder('Input', transform = transform)
+data = datasets.ImageFolder('Input1', transform = transform)
 
 num_data = len(data)
 indices_data = list(range(num_data))
@@ -40,31 +40,31 @@ class Net(nn.Module):
   def __init__(self):
     super(Net, self).__init__()
 
-    self.conv1 = nn.Conv2d(3, 32, 5, padding=5)
+    self.conv1 = nn.Conv2d(3, 32, 5, padding=2)
     self.pool = nn.MaxPool2d(5, 5)
-    self.conv2 = nn.Conv2d(32, 64, 5, padding=5)
+    self.conv2 = nn.Conv2d(32, 64, 5, padding=2)
     #self.pool = nn.MaxPool2d(5, 5)
-    self.conv3 = nn.Conv2d(64, 32, 5, padding=5)
+    self.conv3 = nn.Conv2d(64, 32, 5, padding=2)
     #self.pool = nn.MaxPool2d(5, 5)
 
     self.dropout = nn.Dropout(0.2)
-    self.fc1 = nn.Linear(32*3*3, 128)
+    self.fc1 = nn.Linear(32*1*1, 128)
     self.fc2 = nn.Linear(128, 2)
     #self.fc3 = nn.Linear(84, 3)
     #self.fc1 = nn.Linear(int(256*(224/2**3)*(224/2**3)), 4096)
     self.softmax = nn.LogSoftmax(dim=1)
 
   def forward(self, x):
-    #print(x.size())
+    print(x.size())
     x = self.pool(F.relu(self.conv1(x)))
-    #print(x.size())
+    print(x.size())
     x = self.pool(F.relu(self.conv2(x)))
-    #print(x.size())
+    print(x.size())
     x = self.pool(F.relu(self.conv3(x))) 
-    #print(x.size())
+    print(x.size())
     x = self.dropout(x)
 
-    x = x.view(-1, 32 * 3 * 3)
+    x = x.view(-1, 32 * 1 * 1)
     x = F.relu(self.fc1(x))
     #x = self.dropout(F.relu(self.fc2(x)))
     x = self.softmax(self.fc2(x))
