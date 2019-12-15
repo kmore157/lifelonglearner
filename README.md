@@ -15,9 +15,16 @@ If we try to automate such workflows of user interactions with the website, firs
 This project is trying to solve the aforementioned problem statement. We try to build a comprehensive dataset of images\screenshots corresponding to each category, here category is state of user interaction, i.e. webpage out of all webpages of a website.  
 We'll use Convolutional Neural Net, on aforementioned dataset and train a model that should be capable of classifying 
 
-Installation: Installation is the next section in an effective README. Tell other users how to install your project locally. Optionally, include a gif to make the process even more clear for other people.
+Installation: 
+1) Python 3.7.5
+2) Create virtualenv:-
+        virtualenv project1 --system-site-packages
+3) Activate project1 virtualenv:- 
+        source project1/bin/activate
+4) pip3 install torch
+5) pip3 install torchvision
 
-Usage: The next section is usage, in which you instruct other people on how to use your project after they’ve installed it. This would also be a good place to include screenshots of your project in action.
+Usage: TBD
 
 Contributing: 
 
