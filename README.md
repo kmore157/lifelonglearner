@@ -13,7 +13,7 @@ Let's consider a test scenario, where QA needs to validate login functionality. 
 If we try to automate such workflows of user interactions with the website, first step in the process would be to identify state of current user interaction. i.e. which webpage out of many such webpages of a website, user is currently dealing with. Based on that, corresponding actions could be brought into the picture and performed. 
 
 This project is trying to solve the aforementioned problem statement. We try to build a comprehensive dataset of images\screenshots corresponding to each category, here category is state of user interaction, i.e. webpage out of all webpages of a website.  
-We'll use Convolutional Neural Net, on aforementioned dataset and train a model that should be capable of classifying 
+We'll use Convolutional Neural Net, on aforementioned dataset and train a model that should be capable of classification problem at hand. 
 
 Installation: 
 1) Python 3.7.5
